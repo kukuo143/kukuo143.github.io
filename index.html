@@ -2,7 +2,7 @@
 <html lang="ko">
 <head>
     <meta charset="utf-8">
-    <title>토끼 자동 이동 - 큰 버전</title>
+    <title>토끼 자동 이동</title>
     <style>
         body {
             margin: 0;
@@ -27,8 +27,8 @@
             position: absolute;
             top: 150px;
             left: 50px;
-            width: 200px;  /* ✅ 크기 크게 */
-            height: 200px; /* ✅ 크기 크게 */
+            width: 200px;  /* ✅ 토끼 크기 크게 */
+            height: 200px;
             transition: transform 0.2s;
         }
     </style>
@@ -37,42 +37,44 @@
     <h2>Hello World</h2>
     <h3>처음 만드는 웹 페이지</h3>
 
-    <!-- ✅ 저장하신 토끼 이미지 -->
+    <!-- ✅ 올려주신 토끼 이미지 -->
     <img id="rabbit" src="images.jpg" alt="토끼">
 
     <script>
         window.onload = function() {
             alert('Hello World');
+
+            const rabbit = document.getElementById('rabbit');
+            let x = 50;
+            let y = 150;
+            let dx = 2; // x축 이동 속도
+            let dy = 2; // y축 이동 속도
+
+            function moveRabbit() {
+                x += dx;
+                y += dy;
+
+                // 벽에 닿으면 튕기기
+                if (x <= 0 || x >= window.innerWidth - 200) {
+                    dx *= -1;
+                    rabbit.style.transform = `scaleX(${dx > 0 ? 1 : -1})`; // 좌우 반전
+                }
+                if (y <= 0 || y >= window.innerHeight - 200) {
+                    dy *= -1;
+                }
+
+                rabbit.style.left = x + 'px';
+                rabbit.style.top = y + 'px';
+
+                requestAnimationFrame(moveRabbit);
+            }
+
+            moveRabbit(); // 자동 이동 시작
         };
-
-        const rabbit = document.getElementById('rabbit');
-        let x = 50;
-        let y = 150;
-        let dx = 2;
-        let dy = 2;
-
-        function moveRabbit() {
-            x += dx;
-            y += dy;
-
-            if (x <= 0 || x >= window.innerWidth - 200) { // ✅ 크기에 맞춰 경계 조정
-                dx *= -1;
-                rabbit.style.transform = `scaleX(${dx > 0 ? 1 : -1})`;
-            }
-            if (y <= 0 || y >= window.innerHeight - 200) {
-                dy *= -1;
-            }
-
-            rabbit.style.left = x + 'px';
-            rabbit.style.top = y + 'px';
-
-            requestAnimationFrame(moveRabbit);
-        }
-
-        moveRabbit();
     </script>
 </body>
 </html>
+
 
 
 
