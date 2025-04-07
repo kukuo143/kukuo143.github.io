@@ -2,7 +2,7 @@
 <html lang="ko">
 <head>
     <meta charset="utf-8">
-    <title>My First Web Site + 토끼 자동 이동</title>
+    <title>My First Web Site + 강아지 자동 이동</title>
     <style>
         body {
             margin: 0;
@@ -23,12 +23,13 @@
             top: 60px;
             left: 10px;
         }
-        #rabbit {
+        #dog {
             position: absolute;
             top: 150px;
             left: 50px;
-            width: 100px;
-            height: 100px;
+            width: 120px;
+            height: 120px;
+            transition: transform 0.2s;
         }
     </style>
 </head>
@@ -36,41 +37,19 @@
     <h2>Hello World</h2>
     <h3>처음 만드는 웹 페이지</h3>
 
-    <img id="rabbit" src="image.png" alt="토끼">
+    <!-- ✅ 귀여운 강아지 이미지 -->
+    <img id="dog" src="image.png" alt="강아지">
 
     <script>
         window.onload = function() {
             alert('Hello World');
         };
 
-        const rabbit = document.getElementById('rabbit');
+        const dog = document.getElementById('dog');
         let x = 50;
         let y = 150;
-        let dx = 2; // x축 이동 속도
-        let dy = 2; // y축 이동 속도
+        let dx = 2; // x
 
-        function moveRabbit() {
-            x += dx;
-            y += dy;
-
-            // 화면 경계에 부딪히면 방향 반전
-            if (x <= 0 || x >= window.innerWidth - 100) {
-                dx *= -1;
-            }
-            if (y <= 0 || y >= window.innerHeight - 100) {
-                dy *= -1;
-            }
-
-            rabbit.style.left = x + 'px';
-            rabbit.style.top = y + 'px';
-
-            requestAnimationFrame(moveRabbit);
-        }
-
-        moveRabbit(); // 자동 움직임 시작
-    </script>
-</body>
-</html>
 
 
 
