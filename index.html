@@ -2,7 +2,7 @@
 <html lang="ko">
 <head>
     <meta charset="utf-8">
-    <title>My First Web Site + 토끼 이동</title>
+    <title>My First Web Site + 토끼 자동 이동</title>
     <style>
         body {
             margin: 0;
@@ -27,7 +27,7 @@
             position: absolute;
             top: 150px;
             left: 50px;
-            width: 100px; /* 크기 조정 */
+            width: 100px;
             height: 100px;
         }
     </style>
@@ -36,7 +36,6 @@
     <h2>Hello World</h2>
     <h3>처음 만드는 웹 페이지</h3>
 
-    <!-- ✅ 올려주신 토끼 이미지 연결 -->
     <img id="rabbit" src="image.png" alt="토끼">
 
     <script>
@@ -47,28 +46,32 @@
         const rabbit = document.getElementById('rabbit');
         let x = 50;
         let y = 150;
+        let dx = 2; // x축 이동 속도
+        let dy = 2; // y축 이동 속도
 
-        document.addEventListener('keydown', function(event) {
-            const step = 10;
-            if (event.key === 'ArrowUp') {
-                y -= step;
-            } else if (event.key === 'ArrowDown') {
-                y += step;
-            } else if (event.key === 'ArrowLeft') {
-                x -= step;
-            } else if (event.key === 'ArrowRight') {
-                x += step;
+        function moveRabbit() {
+            x += dx;
+            y += dy;
+
+            // 화면 경계에 부딪히면 방향 반전
+            if (x <= 0 || x >= window.innerWidth - 100) {
+                dx *= -1;
             }
-            // 화면 경계 체크
-            x = Math.max(0, Math.min(window.innerWidth - 100, x));
-            y = Math.max(0, Math.min(window.innerHeight - 100, y));
+            if (y <= 0 || y >= window.innerHeight - 100) {
+                dy *= -1;
+            }
 
             rabbit.style.left = x + 'px';
             rabbit.style.top = y + 'px';
-        });
+
+            requestAnimationFrame(moveRabbit);
+        }
+
+        moveRabbit(); // 자동 움직임 시작
     </script>
 </body>
 </html>
+
 
 
 
