@@ -1,77 +1,18 @@
 <!doctype html>
-<html lang="ko">
+<html lang='ko'>
 <head>
-    <meta charset="utf-8">
-    <title>토끼 자동 이동</title>
-    <style>
-        body {
-            margin: 0;
-            overflow: hidden;
-            background-color: #eef;
-            position: relative;
-            height: 100vh;
-        }
-        h2 {
-            font-weight: bolder;
-            color: red;
-            position: absolute;
-            top: 10px;
-            left: 10px;
-        }
-        h3 {
-            position: absolute;
-            top: 60px;
-            left: 10px;
-        }
-        #rabbit {
-            position: absolute;
-            top: 150px;
-            left: 50px;
-            width: 200px;  /* ✅ 토끼 크기 크게 */
-            height: 200px;
-            transition: transform 0.2s;
-        }
-    </style>
+  <meta charset="utf-8">
+  <title>My First Web Site</title>
+  <style>
+    h2 { font-weight:bolder; color:red; }
+  </style>
+  <script>
+     alert('Hello World');
+  </script>
 </head>
 <body>
-    <h2>Hello World</h2>
-    <h3>처음 만드는 웹 페이지</h3>
-
-    <!-- ✅ 올려주신 토끼 이미지 -->
-    <img id="rabbit" src="images.jpg" alt="토끼">
-
-    <script>
-        window.onload = function() {
-            alert('Hello World');
-
-            const rabbit = document.getElementById('rabbit');
-            let x = 50;
-            let y = 150;
-            let dx = 2; // x축 이동 속도
-            let dy = 2; // y축 이동 속도
-
-            function moveRabbit() {
-                x += dx;
-                y += dy;
-
-                // 벽에 닿으면 튕기기
-                if (x <= 0 || x >= window.innerWidth - 200) {
-                    dx *= -1;
-                    rabbit.style.transform = `scaleX(${dx > 0 ? 1 : -1})`; // 좌우 반전
-                }
-                if (y <= 0 || y >= window.innerHeight - 200) {
-                    dy *= -1;
-                }
-
-                rabbit.style.left = x + 'px';
-                rabbit.style.top = y + 'px';
-
-                requestAnimationFrame(moveRabbit);
-            }
-
-            moveRabbit(); // 자동 이동 시작
-        };
-    </script>
+  <h2>Hello World</h2>
+  <h3>처음 만드는 웹 페이지</h3>
 </body>
 </html>
 
