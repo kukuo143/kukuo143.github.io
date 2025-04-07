@@ -2,16 +2,54 @@
 <html lang="ko">
 <head>
     <meta charset="utf-8">
-    <title>My First Web Site</title>
+    <title>My First Web Site + 토끼 이동</title>
     <style>
         h2 { font-weight: bolder; color: red; }
+        #rabbit {
+            position: absolute;
+            top: 50px;
+            left: 50px;
+            width: 80px;
+            height: 80px;
+            background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/7/70/Emoji_u1f407.svg/120px-Emoji_u1f407.svg.png');
+            background-size: cover;
+        }
+        body {
+            margin: 0;
+            overflow: hidden;
+            background-color: #eef;
+        }
     </style>
-    <script>
-        alert('Hello World');
-    </script>
 </head>
 <body>
     <h2>Hello World</h2>
     <h3>처음 만드는 웹 페이지</h3>
+
+    <div id="rabbit"></div> <!-- 토끼 추가 -->
+
+    <script>
+        // 페이지 열자마자 알림 띄우기
+        alert('Hello World');
+
+        // 토끼 움직이기 코드
+        const rabbit = document.getElementById('rabbit');
+        let x = 50;
+        let y = 50;
+
+        document.addEventListener('keydown', function(event) {
+            const step = 10;
+            if (event.key === 'ArrowUp') {
+                y -= step;
+            } else if (event.key === 'ArrowDown') {
+                y += step;
+            } else if (event.key === 'ArrowLeft') {
+                x -= step;
+            } else if (event.key === 'ArrowRight') {
+                x += step;
+            }
+            rabbit.style.left = x + 'px';
+            rabbit.style.top = y + 'px';
+        });
+    </script>
 </body>
 </html>
