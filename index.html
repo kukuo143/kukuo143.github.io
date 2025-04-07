@@ -1,22 +1,83 @@
 <!doctype html>
-<html lang='ko'>
+<html lang="ko">
 <head>
   <meta charset="utf-8">
-  <title>My First Web Site</title>
+  <title>프리랜서 고용 페이지</title>
   <style>
-    h2 { font-weight:bolder; color:red; }
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+    .container {
+      display: flex;
+      height: 100vh;
+    }
+    .left {
+      flex: 1;
+      background-color: #152c34;
+      color: white;
+      padding: 100px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .left h1 {
+      font-size: 48px;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+    .left p {
+      font-size: 18px;
+      margin-bottom: 40px;
+    }
+    .buttons {
+      display: flex;
+      gap: 10px;
+    }
+    .buttons button {
+      padding: 10px 20px;
+      font-size: 16px;
+      border: none;
+      cursor: pointer;
+    }
+    .about-btn {
+      background-color: #ff5c5c;
+      color: white;
+    }
+    .quote-btn {
+      background-color: white;
+      color: black;
+    }
+    .right {
+      flex: 1;
+      background-color: #1ecfc7;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .right img {
+      width: 400px;
+      max-width: 90%;
+    }
   </style>
-  <script>
-     alert('Hello World');
-  </script>
 </head>
 <body>
-  <h2>Hello World</h2>
-  <h3>처음 만드는 웹 페이지</h3>
-  <img src='https://png.pngtree.com/png-clipart/20240416/original/pngtree-cute-rabbit-sitting-png-image_14832808.png' width='300'>
-  <img src='image/images.jpg' width='300'>
+  <div class="container">
+    <div class="left">
+      <h1>YOU CAN<br>HIRE FREELANCER<br>HERE</h1>
+      <p>It is a long established fact that a reader will be distracted by the readable content of a page</p>
+      <div class="buttons">
+        <button class="about-btn">About Us</button>
+        <button class="quote-btn">Get A Quote</button>
+      </div>
+    </div>
+    <div class="right">
+      <img src="https://png.pngtree.com/png-clipart/20240416/original/pngtree-cute-rabbit-sitting-png-image_14832808.png" alt="프리랜서 그림">
+    </div>
+  </div>
 </body>
 </html>
+
 
 
 
