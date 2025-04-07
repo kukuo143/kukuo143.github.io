@@ -4,37 +4,49 @@
     <meta charset="utf-8">
     <title>My First Web Site + 토끼 이동</title>
     <style>
-        h2 { font-weight: bolder; color: red; }
+        body {
+            margin: 0;
+            overflow: hidden;
+            background-color: #eef;
+            position: relative; /* 추가 */
+            height: 100vh; /* 화면 가득 차게 */
+        }
+        h2 {
+            font-weight: bolder;
+            color: red;
+            position: absolute;
+            top: 10px;
+            left: 10px;
+        }
+        h3 {
+            position: absolute;
+            top: 60px;
+            left: 10px;
+        }
         #rabbit {
             position: absolute;
-            top: 50px;
+            top: 150px;
             left: 50px;
             width: 80px;
             height: 80px;
             background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/7/70/Emoji_u1f407.svg/120px-Emoji_u1f407.svg.png');
             background-size: cover;
         }
-        body {
-            margin: 0;
-            overflow: hidden;
-            background-color: #eef;
-        }
     </style>
 </head>
 <body>
     <h2>Hello World</h2>
     <h3>처음 만드는 웹 페이지</h3>
-
-    <div id="rabbit"></div> <!-- 토끼 추가 -->
+    <div id="rabbit"></div>
 
     <script>
-        // 페이지 열자마자 알림 띄우기
-        alert('Hello World');
+        window.onload = function() {
+            alert('Hello World'); // 페이지 뜨자마자 알림 한번
+        };
 
-        // 토끼 움직이기 코드
         const rabbit = document.getElementById('rabbit');
         let x = 50;
-        let y = 50;
+        let y = 150;
 
         document.addEventListener('keydown', function(event) {
             const step = 10;
@@ -53,3 +65,4 @@
     </script>
 </body>
 </html>
+
