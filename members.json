@@ -1,4 +1,5 @@
-{ "userId": "smith", 
-  "useeId": "PARK",
-  "phone": "01092704720", 
-  "phone": "01012345678" }
+{
+  "userId": ["smith","PARK"],
+  "phone": ["01092704720", "01012345678"]
+}
+
