@@ -1,5 +1,19 @@
-{
-  "userId": ["smith","PARK"],
-  "phone": ["01092704720", "01012345678"]
-}
-
+[  
+    {
+    "userid": "smith",
+    "name": "John Smith",
+    "phone": "010-1234-5678"
+    },
+    {"userid": "jane",
+    "name": "Jane Doe",
+    "phone": "010-9876-5432"
+    },
+    {"userid": "kim",
+    "name": "Kim Lee",
+    "phone": "010-5555-5555"
+    },
+    {"userid": "park",
+    "name": "Park Chan",
+    "phone": "010-4444-4444"
+    }
+]
